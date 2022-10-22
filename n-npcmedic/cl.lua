@@ -8,7 +8,7 @@ local spawn = vector4(315.74, -584.47, 43.28, 20)
 local bed = vector4(314.42, -584.47, 44.20, 339.18)
 
 CreateThread(function()
-	while true do
+    while ESX do
         if not alreadyhelped then
             local pc = GetEntityCoords(PlayerPedId())
             local tc = vector3(npc.x, npc.y, npc.z)
@@ -34,27 +34,27 @@ CreateThread(function()
                         ESX.ShowNotification('You are feeling better now!')
                         alreadyhelped = true
                         StopGameplayCamShaking()
-					end
-				end
+		    end
+	        end
             else
                 Wait(100 * #(pc - tc))
-			end
+	    end
         end
         Wait(0)
     end
 end)
 
 CreateThread(function()
-	npcHash = GetHashKey("s_m_m_paramedic_01")
-	RequestModel(npcHash)
+    npcHash = GetHashKey("s_m_m_paramedic_01")
+    RequestModel(npcHash)
     repeat Wait(10) until HasModelLoaded(npcHash)
-	npc = CreatePed(1, npcHash, npc.x, npc.y, npc.z, npc.w, false, true)
-	SetBlockingOfNonTemporaryEvents(npc, true)
-	SetPedDiesWhenInjured(npc, false)
-	SetPedCanPlayAmbientAnims(npc, true)
-	SetPedCanRagdollFromPlayerImpact(npc, false)
-	SetEntityInvincible(npc, true)
-	FreezeEntityPosition(npc, true)
+    npc = CreatePed(1, npcHash, npc.x, npc.y, npc.z, npc.w, false, true)
+    SetBlockingOfNonTemporaryEvents(npc, true)
+    SetPedDiesWhenInjured(npc, false)
+    SetPedCanPlayAmbientAnims(npc, true)
+    SetPedCanRagdollFromPlayerImpact(npc, false)
+    SetEntityInvincible(npc, true)
+    FreezeEntityPosition(npc, true)
 end)
 
 function t(c, t)
