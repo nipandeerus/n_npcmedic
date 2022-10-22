@@ -31,6 +31,7 @@ CreateThread(function()
 				        ESX.ShowNotification('You are feeling better now!')
 					    alreadyhelped = true
 				        StopGameplayCamShaking()
+                                              alreadyhelped = false
 					end
 				end
 			end
