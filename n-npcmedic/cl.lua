@@ -7,7 +7,6 @@ CreateThread(function()
 	end
 	while true do
 	Wait(0)
-	if not alreadyhelped then
 	local pc = GetEntityCoords(PlayerPedId())
     local tc = vector3(312.2092, -592.8922, 43.2840)
                         if #(pc - tc) < 1.0 then
@@ -29,10 +28,7 @@ CreateThread(function()
 				        Wait(20000)
 				        ResetPedMovementClipset(PlayerPedId())
 				        ESX.ShowNotification('You are feeling better now!')
-					    alreadyhelped = true
 				        StopGameplayCamShaking()
-                                              alreadyhelped = false
-					end
 				end
 			end
         end
